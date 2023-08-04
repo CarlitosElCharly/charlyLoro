@@ -1,12 +1,16 @@
 import { faker } from '@faker-js/faker';
-import { form } from '@pages/pages/signup.Page';
-import { removeLogs } from '@helper/RemoveLogs';
+import { form } from '../support/pages/signup.Page';
+import { removeLogs } from '../support/helper/RemoveLogs';
 
 describe('TS: ✅LoroTest | Forms | Practice Form', () => {
-	it('TC1: Validar el funcionamiento del formulario con datos aleatorios correctos.', () => {
-		cy.visit('https://www.loroinsurance.com/signup');
-		cy.url().should('contain', '/signup');
 
+ before(()=> {
+    cy.clearCookies();
+    cy.visit('https://www.loroinsurance.com/signup');
+		cy.url().should('contain', '/signup');
+ })
+	it('TC1: Validar el funcionamiento del formulario con datos aleatorios correctos.', () => {
+	
 		//Se declaran las constantes de los inputs para utilizar faker y su librería
 		const randomName = faker.name.firstName();
 		const randomLastName = faker.name.lastName();

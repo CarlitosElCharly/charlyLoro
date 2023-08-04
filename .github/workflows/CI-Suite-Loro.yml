@@ -1,0 +1,27 @@
+name: CI de ejecución de prueba
+
+on: # This Run is a template. The correct "Run On" should be: Any except QA and Main
+    push:
+jobs:
+    Build-Cypress-TestSuite-AfterPush:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+
+            - name: Install Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+
+            - name: Install All Dependencies
+              run: |
+                  npm ci
+
+            - name: Cypress Run Test in Chrome
+              uses: cypress-io/github-action@v4
+              with:
+                  browser: chrome
+                  command: |
+                      npm run file cypress/e2e/signup.cy.js

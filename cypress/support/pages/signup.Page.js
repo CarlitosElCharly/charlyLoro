@@ -9,22 +9,22 @@ class Formulario {
 	};
 
 	typeName(randomName) {
-		randomName && this.get.inputName().type(randomName);
+		randomName && this.get.inputName().type(randomName, { force: true });
 	}
 	typeSureName(randomLastName) {
-		randomLastName && this.get.inputSureName().type(randomLastName);
+		randomLastName && this.get.inputSureName().type(randomLastName, { force: true });
 	}
 	typeMail(randomMail) {
-		randomMail && this.get.inputMail().type(randomMail);
+		randomMail && this.get.inputMail().type(randomMail, { force: true });
 	}
 	typePassword(randomPassword) {
-		randomPassword && this.get.inputPassword().type(randomPassword);
+		randomPassword && this.get.inputPassword().type(randomPassword, { force: true });
 	}
 	typePassConfirm(randomPassword) {
-		randomPassword && this.get.inputPassConfirm().type(randomPassword);
+		randomPassword && this.get.inputPassConfirm().type(randomPassword, { force: true });
 	}
 	typeSiteName(randomSiteName) {
-		randomSiteName && this.get.inputSiteName().type(randomSiteName);
+		randomSiteName && this.get.inputSiteName().type(randomSiteName, { force: true });
 	}
 }
 export const form = new Formulario();
