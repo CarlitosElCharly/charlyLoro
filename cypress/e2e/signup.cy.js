@@ -6,8 +6,8 @@ describe('TS: ✅LoroTest | Forms | Practice Form', () => {
 
  before(()=> {
     cy.clearCookies();
-    cy.visit('https://www.loroinsurance.com/signup');
-		cy.url().should('contain', '/signup');
+    cy.visit('signup');
+				cy.url().should('contain', '/signup');
  })
 	it('TC1: Validar el funcionamiento del formulario con datos aleatorios correctos.', () => {
 	
@@ -17,8 +17,7 @@ describe('TS: ✅LoroTest | Forms | Practice Form', () => {
 		const randomMail = faker.internet.email();
 		const randomPassword = faker.internet.password(); //se genera una sola vez
 		const randomSiteName = faker.internet.userName();
-		//Se deben agregar a sesiones por cada test
-		//sino solamente se está automatizando pero no está validando nada
+	
 		form.typeName(randomName);
 		form.get.inputName().should('have.value', randomName);
 
@@ -36,6 +35,7 @@ describe('TS: ✅LoroTest | Forms | Practice Form', () => {
 
 		form.typeSiteName(randomSiteName);
 		form.get.inputSiteName().should('have.value', randomSiteName);
+
 	});
 });
 removeLogs();
