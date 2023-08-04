@@ -5,6 +5,7 @@ import {removeLogs} from "../support/helper/RemoveLogs";
 describe('TS: ✅LoroTest | Forms | Practice Login', () => {
 
 beforeEach(() => {
+    cy.clearCookies();
     cy.visit('/login')
     cy.url().should('contain', 'login')
 })

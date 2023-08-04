@@ -6,7 +6,7 @@ describe('TS: ✅LoroTest | Forms | Practice Form', () => {
 
  before(()=> {
     cy.clearCookies();
-    cy.visit('signup');
+    cy.visit('/signup');
 				cy.url().should('contain', '/signup');
  })
 	it('TC1: Validar el funcionamiento del formulario con datos aleatorios correctos.', () => {
@@ -16,7 +16,7 @@ describe('TS: ✅LoroTest | Forms | Practice Form', () => {
 		const randomLastName = faker.name.lastName();
 		const randomMail = faker.internet.email();
 		const randomPassword = faker.internet.password(); //se genera una sola vez
-		const randomSiteName = faker.internet.userName();
+		const randomSiteName = faker.word.words();
 	
 		form.typeName(randomName);
 		form.get.inputName().should('have.value', randomName);

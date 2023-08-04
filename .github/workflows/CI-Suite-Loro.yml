@@ -25,3 +25,4 @@ jobs:
                   browser: chrome
                   command: |
                       npm run file cypress/e2e/signup.cy.js
+                      npm run file cypress/e2e/login.cy.js
